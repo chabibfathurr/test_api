@@ -1,0 +1,45 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./generated/client"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model murid {
+  id         Int       @id @default(autoincrement())
+  id_sekolah Int
+  nama       String    @unique(map: "nama") @db.VarChar(100)
+  email      String    @unique(map: "email") @db.VarChar(50)
+  alamat     String    @db.Text
+  no_telp    String    @db.VarChar(20)
+  status     Int       @db.SmallInt
+  created_at DateTime? @db.DateTime(0)
+  updated_at DateTime? @db.DateTime(0)
+  created_by String?   @db.VarChar(100)
+  updated_by String?   @db.VarChar(100)
+  deleted_by DateTime? @db.DateTime(0)
+  sekolah    sekolah   @relation(fields: [id_sekolah], references: [id], onUpdate: Restrict, map: "murid_ibfk_1")
+
+  @@index([id_sekolah], map: "id_sekolah")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model sekolah {
+  id         Int       @id @default(autoincrement())
+  nama       String    @unique(map: "nama") @db.VarChar(100)
+  email      String    @unique(map: "email") @db.VarChar(50)
+  alamat     String    @db.Text
+  no_telp    String    @unique(map: "no_telp") @db.VarChar(20)
+  status     Int       @default(0) @db.SmallInt
+  created_at DateTime? @db.DateTime(0)
+  updated_at DateTime? @db.DateTime(0)
+  created_by String?   @db.VarChar(100)
+  updated_by String?   @db.VarChar(100)
+  deleted_by DateTime? @db.DateTime(0)
+  murid      murid[]
+}
