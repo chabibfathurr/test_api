@@ -11,6 +11,8 @@ import { LocationModule } from './location/location.module';
 import { LevelPendidikanController } from './informasi/level-pendidikan/level-pendidikan.controller';
 import { LevelPendidikanService } from './informasi/level-pendidikan/level-pendidikan.service';
 import { InformasiModule } from './informasi/informasi.module';
+import { SekolahController } from './sekolah/sekolah.controller';
+import { SekolahService } from './sekolah/sekolah.service';
 
 @Module({
   imports: [
@@ -26,8 +28,8 @@ import { InformasiModule } from './informasi/informasi.module';
     LocationModule,
     InformasiModule,
   ],
-  controllers: [AppController, LevelPendidikanController],
-  providers: [AppService, LevelPendidikanService],
+  controllers: [AppController, LevelPendidikanController, SekolahController],
+  providers: [AppService, LevelPendidikanService, SekolahService],
   exports: [],
 })
 export class AppModule {}

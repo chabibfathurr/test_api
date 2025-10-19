@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { RegistrasiController } from './registrasi/registrasi.controller';
-import { RegistrasiService } from './registrasi/registrasi.service';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { EncryptionService } from 'src/lib/encryption.service';
 import { SendEmailService } from 'src/partners/send-email/send-email.service';
@@ -13,10 +11,9 @@ import { InformasiService } from './informasi/informasi.service';
 
 @Module({
   imports: [HttpModule],
-  controllers: [RegistrasiController, ActivateController, InformasiController],
+  controllers: [ActivateController, InformasiController],
   providers: [
-    RegistrasiService, 
-    PrismaService, 
+    PrismaService,
     EncryptionService,
     SendEmailService,
     WhatsAppService,
