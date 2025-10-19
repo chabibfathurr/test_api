@@ -1,4 +1,4 @@
-import { Body, Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { AddSekolahDTO, UpdatedSekolahDTO } from './sekolah.dto';
 
@@ -6,7 +6,7 @@ import { AddSekolahDTO, UpdatedSekolahDTO } from './sekolah.dto';
 export class SekolahService {
   constructor(private prisma: PrismaService) {}
   private readonly logger = new Logger(SekolahService.name);
-  async list(body: any) {
+  async list() {
     const sekolahList = await this.prisma.sekolah.findMany({});
 
     return sekolahList;

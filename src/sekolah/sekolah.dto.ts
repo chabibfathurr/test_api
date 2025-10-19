@@ -13,7 +13,7 @@ export class AddSekolahDTO {
 
 export class UpdatedSekolahDTO {
   @IsNotEmpty()
-  id: any;
+  id: number;
   @IsNotEmpty()
   nama: string;
   @IsOptional()

@@ -6,7 +6,6 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { AuthModule } from './auth/auth.module';
 import { PartnersModule } from './partners/partners.module';
 import { ConfigModule } from '@nestjs/config';
-import { PesertaModule } from './peserta/peserta.module';
 import { LocationModule } from './location/location.module';
 import { LevelPendidikanController } from './informasi/level-pendidikan/level-pendidikan.controller';
 import { LevelPendidikanService } from './informasi/level-pendidikan/level-pendidikan.service';
@@ -24,7 +23,6 @@ import { SekolahService } from './sekolah/sekolah.service';
     ScheduleModule,
     ScheduleModule.forRoot(),
     PartnersModule,
-    PesertaModule,
     LocationModule,
     InformasiModule,
   ],

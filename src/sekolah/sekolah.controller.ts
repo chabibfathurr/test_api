@@ -3,7 +3,7 @@
 // import { OKException } from 'src/utilities/ok.exception';
 
 // eslint-disable-next-line prettier/prettier
-import { Body, Controller, Logger, Post, Response } from '@nestjs/common';
+import { Body, Controller, Logger, Post} from '@nestjs/common';
 import { SekolahService } from './sekolah.service';
 import { OKException } from 'src/utilities/ok.exception';
 import { AddSekolahDTO, UpdatedSekolahDTO } from './sekolah.dto';
@@ -15,17 +15,17 @@ export class SekolahController {
     timestamp: true,
   });
   @Post('list')
-  async loggedIn(@Body() body: any, @Response() res: any) {
-    const signin = await this.sekolahService.list(body);
+  async loggedIn() {
+    const signin = await this.sekolahService.list();
     throw new OKException(signin, 'Success');
   }
   @Post('add')
-  async add(@Body() body: AddSekolahDTO, @Response() res: any) {
+  async add(@Body() body: AddSekolahDTO) {
     const signin = await this.sekolahService.add(body);
     throw new OKException(signin, 'Success');
   }
   @Post('update')
-  async update(@Body() body: UpdatedSekolahDTO, @Response() res: any) {
+  async update(@Body() body: UpdatedSekolahDTO) {
     const signin = await this.sekolahService.update(body);
     throw new OKException(signin, 'Success');
   }
