@@ -1,4 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 
 export class AddSekolahDTO {
   @IsNotEmpty()
@@ -8,5 +8,18 @@ export class AddSekolahDTO {
   @IsNotEmpty()
   alamat: string;
   @IsNotEmpty()
+  no_telp: string;
+}
+
+export class UpdatedSekolahDTO {
+  @IsNotEmpty()
+  id: any;
+  @IsNotEmpty()
+  nama: string;
+  @IsOptional()
+  email: string;
+  @IsOptional()
+  alamat: string;
+  @IsOptional()
   no_telp: string;
 }
