@@ -1,8 +1,3 @@
-// import { Body, Controller, Logger, Post, Response } from '@nestjs/common';
-// import { SekolahService } from './sekolah.service';
-// import { OKException } from 'src/utilities/ok.exception';
-
-// eslint-disable-next-line prettier/prettier
 import { Body, Controller, Logger, Post} from '@nestjs/common';
 import { SekolahService } from './sekolah.service';
 import { OKException } from 'src/utilities/ok.exception';
